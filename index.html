@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escritório no Claude</title>
+<meta name="description" content="Kit em português de skills prontas pro Claude Code: proposta, orçamento, follow-up, avaliações, legenda, email, planilha e resumo semanal no tom da tua empresa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--card:#fff;--ink:#1c1a17;--muted:#6b655c;--line:#e7e1d6;--accent:#d9623b;--accent-ink:#fff;--soft:#f3ece2}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.1;font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3.5vw,2.1rem);line-height:1.2;font-weight:800;margin-bottom:24px;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+p{color:var(--muted)}
+.tag{display:inline-block;background:var(--soft);color:var(--accent);font-weight:700;font-size:.8rem;padding:6px 12px;border-radius:99px;margin-bottom:20px;text-transform:uppercase;letter-spacing:.06em}
+.hero{padding:96px 0 80px}
+.hero p.sub{font-size:1.2rem;margin:20px 0 32px;max-width:640px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:18px 32px;border-radius:12px;font-size:1.05rem;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 20px rgba(217,98,59,.3)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(217,98,59,.38)}
+.note{font-size:.9rem;margin-top:14px}
+.price{font-size:1rem;color:var(--muted);margin-top:8px}
+.price s{margin-right:6px}
+.price b{color:var(--ink);font-size:1.6rem}
+ul.pain{list-style:none;display:grid;gap:12px;margin:8px 0 24px}
+ul.pain li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:var(--ink)}
+.callout{font-weight:700;color:var(--ink);font-size:1.15rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.step .n{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;display:grid;place-items:center;margin-bottom:14px}
+code{background:var(--soft);padding:2px 6px;border-radius:6px;font-size:.92em;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.demo div{border-radius:14px;padding:20px;border:1px solid var(--line)}
+.demo .before{background:#f1efeb}
+.demo .after{background:var(--card);border-color:var(--accent)}
+.demo small{display:block;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.75rem;margin-bottom:8px}
+.demo .before small{color:var(--muted)}.demo .after small{color:var(--accent)}
+.demo p{color:var(--ink)}
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fit ul{list-style:none;display:grid;gap:10px}
+.fit li{padding-left:28px;position:relative;color:var(--ink)}
+.fit .yes li::before{content:"✓";position:absolute;left:0;color:#2f8a4f;font-weight:800}
+.fit .no li::before{content:"✕";position:absolute;left:0;color:#b5432a;font-weight:800}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--accent);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px}
+.guarantee{display:flex;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px}
+.seal{flex:0 0 96px;height:96px;border-radius:50%;border:3px solid var(--accent);display:grid;place-items:center;text-align:center;font-weight:800;color:var(--accent);line-height:1.1}
+.seal span{font-size:2rem;display:block}
+.final{text-align:center;border-bottom:none}
+.final p{max-width:560px;margin:0 auto 28px}
+footer{text-align:center;padding:32px 0 48px;font-size:.85rem;color:var(--muted)}
+@media(max-width:760px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  section{padding:56px 0}
+  .hero{padding:64px 0 56px}
+  .steps,.grid,.demo,.fit{grid-template-columns:1fr}
+  .guarantee{flex-direction:column;text-align:center}
+  .btn{display:block;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<section class="hero"><div class="wrap">
+  <span class="tag">Kit pronto pro Claude Code · em português</span>
+  <h1>Teu escritório inteiro dentro do Claude, falando do jeito da tua empresa.</h1>
+  <p class="sub">Proposta, orçamento, follow-up, resposta de avaliação, legenda, email, planilha e resumo da semana. Tu copia uma pasta, responde uma entrevista e começa a usar no mesmo dia. Sem programar.</p>
+  <a class="btn" href="#CHECKOUT">Quero o Escritório no Claude</a>
+  <div class="price"><s>R$97</s> <b>R$47</b> · pagamento único</div>
+  <p class="note">Garantia de 7 dias. Requer o plano Pro do Claude (cerca de US$20/mês).</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Tu já usa IA. Mas ela não conhece teu negócio.</h2>
+  <ul class="pain">
+    <li>Pede um texto e recebe algo genérico, que não parece a tua empresa.</li>
+    <li>Explica de novo quem tu é, o que vende e como fala. Toda vez.</li>
+    <li>Desiste e faz na mão: proposta à noite, orçamento no WhatsApp, avaliação do Google sem resposta.</li>
+    <li>O cliente que pediu preço some, e o follow-up fica pra depois.</li>
+  </ul>
+  <p class="callout">O problema não é a IA. É que ninguém te entregou ela configurada.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Como funciona</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Copia a pasta</h3><p>Baixa o kit e coloca no computador. O guia de 1 página mostra onde, com print.</p></div>
+    <div class="step"><div class="n">2</div><h3>Responde a entrevista</h3><p>Digita <code>/instalar</code>. O Claude pergunta o que tu vende, pra quem, preços e como tu fala. E grava como memória da empresa.</p></div>
+    <div class="step"><div class="n">3</div><h3>Pede o que precisa</h3><p>"Faz uma proposta pro João, reforma de cozinha." Sai no teu tom, com teus dados, sem explicar tudo de novo.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Mesma avaliação, duas respostas</h2>
+  <div class="demo">
+    <div class="before"><small>IA genérica</small><p>"Agradecemos seu feedback. Sua opinião é muito importante para nós."</p></div>
+    <div class="after"><small>Com o kit</small><p>"Valeu, Carla! Que bom que o bolo de pistache fez sucesso no aniversário. Na próxima encomenda, me chama que eu separo a fatia do aniversariante 😄"</p></div>
+  </div>
+  <p class="note">Exemplo ilustrativo.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>O que vem no kit</h2>
+  <div class="grid">
+    <div class="item"><h3>/instalar</h3><p>Entrevista que monta a memória da empresa: serviços, preços, público e tom de voz.</p></div>
+    <div class="item"><h3>Proposta comercial</h3><p>Proposta completa a partir de umas linhas sobre o cliente.</p></div>
+    <div class="item"><h3>Orçamento</h3><p>Itens, valores e condições organizados, pronto pra mandar.</p></div>
+    <div class="item"><h3>Follow-up de cliente</h3><p>A mensagem certa pra quem pediu preço e sumiu, sem parecer chato.</p></div>
+    <div class="item"><h3>Avaliações do Google</h3><p>Resposta curta e humana, com o nome do cliente. Nada de robô.</p></div>
+    <div class="item"><h3>Legenda de Instagram</h3><p>Post no teu jeito de falar, com chamada pro que tu vende.</p></div>
+    <div class="item"><h3>Email profissional</h3><p>Cobrança, retorno, negociação, recusa educada.</p></div>
+    <div class="item"><h3>Análise de planilha</h3><p>Joga o CSV ou Excel e recebe o resumo do que importa.</p></div>
+    <div class="item"><h3>Resumo semanal</h3><p>O que aconteceu na semana e o que fazer na próxima.</p></div>
+    <div class="item"><h3>Guia de 1 página</h3><p>Do zero ao primeiro uso em uns 10 minutos, sem programar.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>É pra ti?</h2>
+  <div class="fit">
+    <div class="item yes"><h3>É pra quem</h3><ul>
+      <li>É autônomo ou tem pequeno negócio</li>
+      <li>Já paga o Claude (ou topa pagar) e usa pouco</li>
+      <li>Perde tempo com proposta, orçamento e resposta de cliente</li>
+      <li>Não programa e não quer aprender</li>
+    </ul></div>
+    <div class="item no"><h3>Não é pra quem</h3><ul>
+      <li>Procura curso de IA: isso é ferramenta pronta, não aula</li>
+      <li>Quer ficar rico com IA: o kit economiza tempo, não gera renda sozinho</li>
+      <li>Não quer pagar nenhuma assinatura</li>
+      <li>É empresa grande com TI e sistemas integrados</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Perguntas frequentes</h2>
+  <details><summary>Preciso pagar o Claude?</summary><p>Sim. O kit roda no Claude Code, que precisa do plano Pro, cerca de US$20 por mês (em dólar, varia com câmbio e IOF). Esse valor vai pra Anthropic, não pra gente. O kit é o que configura o Claude pro teu negócio.</p></details>
+  <details><summary>Preciso saber programar?</summary><p>Não. Tu abre um programa e digita umas palavras. O guia mostra cada passo com print.</p></details>
+  <details><summary>Funciona no Windows e no Mac?</summary><p>Sim, o Claude Code roda nos dois.</p></details>
+  <details><summary>Serve pro meu ramo?</summary><p>Toda empresa faz proposta, orçamento, responde cliente e posta. A entrevista adapta tudo ao teu ramo. Na dúvida, testa: são 7 dias de garantia.</p></details>
+  <details><summary>Funciona com ChatGPT?</summary><p>Não. O kit é feito pro Claude Code.</p></details>
+  <details><summary>Meus dados vão pra vocês?</summary><p>Não. A memória da tua empresa fica numa pasta no teu computador.</p></details>
+  <details><summary>É assinatura?</summary><p>Não. Pagamento único de R$47 e o kit é teu.</p></details>
+  <details><summary>E se eu não conseguir instalar?</summary><p>Segue o guia. Se travar, chama o suporte da compra. Se mesmo assim não servir, pede o reembolso em até 7 dias.</p></details>
+</div></section>
+
+<section><div class="wrap">
+  <div class="guarantee">
+    <div class="seal"><div><span>7</span>dias</div></div>
+    <div><h2 style="margin-bottom:8px">Garantia de 7 dias</h2><p>Comprou, testou e não gostou? Pede o reembolso pela própria Kiwify em até 7 dias e recebe 100% de volta. Sem pergunta.</p></div>
+  </div>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Bota o Claude pra trabalhar no teu escritório</h2>
+  <p>Proposta, orçamento, follow-up e o resto, no teu tom, a partir de hoje.</p>
+  <a class="btn" href="#CHECKOUT">Quero o Escritório no Claude</a>
+  <div class="price"><s>R$97</s> <b>R$47</b> · pagamento único</div>
+  <p class="note">Acesso imediato · Garantia de 7 dias</p>
+</div></section>
+
+<footer>Escritório no Claude · Não é afiliado à Anthropic. Claude é marca da Anthropic.</footer>
+
+</body>
+</html>
